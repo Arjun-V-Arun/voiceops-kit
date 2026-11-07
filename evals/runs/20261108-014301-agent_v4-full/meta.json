@@ -1,0 +1,57 @@
+{
+  "run_id": "20261108-014301-agent_v4-full",
+  "agent_prompt": "agent_v4",
+  "shopper_prompt": "shopper_v1",
+  "suite": "full",
+  "filtered": false,
+  "today": "2026-11-09",
+  "models": {
+    "agent": "openai/gpt-oss-20b",
+    "shopper": "openai/gpt-oss-120b"
+  },
+  "settings": {
+    "agent_temperature": 0.3,
+    "shopper_temperature": 0.8,
+    "reasoning_effort": "low",
+    "json_mode": true,
+    "seed": 7
+  },
+  "fingerprints": {
+    "agent_prompt": "agent_v4",
+    "agent_prompt_hash": "9c7d461646739d98",
+    "brands": {
+      "kesar_and_clay": "67ef78b10388683e",
+      "trailknot": "17d7e154825b90b4"
+    },
+    "suite": "61997779d28813c3"
+  },
+  "started": "2026-11-08T01:43:01",
+  "complete": true,
+  "cases": [
+    "cod_confirm@kesar_and_clay",
+    "cod_confirm@trailknot",
+    "cod_cancel@trailknot",
+    "cod_address_change@kesar_and_clay",
+    "cod_address_change@trailknot",
+    "cod_fee_question@kesar_and_clay",
+    "cod_discount_haggle@kesar_and_clay",
+    "cod_injection@kesar_and_clay",
+    "cod_hinglish@trailknot",
+    "cod_wrong_number@kesar_and_clay",
+    "cod_busy_callback@trailknot",
+    "cod_opt_out@kesar_and_clay",
+    "cod_no_response@trailknot",
+    "cod_skin_reaction@kesar_and_clay",
+    "cod_prepaid_switch@kesar_and_clay",
+    "cod_outside_window@trailknot",
+    "ndr_reattempt@kesar_and_clay",
+    "ndr_reattempt@trailknot",
+    "ndr_landmark@kesar_and_clay",
+    "ndr_office_address@trailknot",
+    "ndr_dispute@kesar_and_clay",
+    "ndr_dispute@trailknot",
+    "ndr_far_date@trailknot",
+    "ndr_cancel@kesar_and_clay"
+  ],
+  "finished": "2026-11-08T01:48:51"
+}

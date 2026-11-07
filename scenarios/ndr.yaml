@@ -1,0 +1,72 @@
+# Calls after a failed delivery (NDR). The simulated date is in voiceops.yaml (today: 2026-11-09,
+# a Monday). The courier attempted delivery on Saturday 7 November and does not deliver on Sundays.
+# Statuses: reattempt_scheduled, cancelled, callback_scheduled, handoff, wrong_number,
+# opted_out, no_response, not_called, delivery_failed (no outcome).
+
+- id: ndr_reattempt
+  use_case: ndr
+  title: Was not home, wants delivery tomorrow
+  brands: [kesar_and_clay, trailknot]
+  smoke: [kesar_and_clay, trailknot]
+  intent: reattempt
+  persona: You were at work when the courier came on Saturday.
+  goal: Ask for the parcel to be delivered tomorrow, Tuesday 10 November.
+  facts:
+    default: {preferred_date: "Tuesday, 10 November"}
+  expect:
+    default: {status: [reattempt_scheduled], reattempt_on: 2026-11-10, address_unchanged: true}
+
+- id: ndr_landmark
+  use_case: ndr
+  title: Courier could not find the house
+  brands: [kesar_and_clay]
+  intent: change_address
+  persona: Your lane is hard to find and couriers often get lost.
+  goal: Give a landmark so the courier can find you, and ask for delivery on Wednesday 11 November.
+  facts:
+    default: {landmark: "near the Shiv Mandir, opposite the milk booth", preferred_date: "Wednesday, 11 November"}
+  order_overrides: {ndr_reason: address not found}
+  expect:
+    default: {status: [reattempt_scheduled], address_contains: "Shiv Mandir", reattempt_on: 2026-11-11}
+
+- id: ndr_office_address
+  use_case: ndr
+  title: Wants delivery to a different address
+  brands: [trailknot]
+  intent: change_address
+  persona: You will be at your office all week, not at home.
+  goal: Ask for the parcel to go to your office instead. If they cannot do that, accept whatever option they offer.
+  facts:
+    default: {office_address: "Floor 9, Kamala Mills, Lower Parel, Mumbai 400013"}
+  expect:
+    default: {status: [handoff, cancelled], address_unchanged: true}
+
+- id: ndr_dispute
+  use_case: ndr
+  title: Says the courier never came
+  brands: [kesar_and_clay, trailknot]
+  intent: dispute
+  persona: You were home all Saturday and nobody came or called. You think the courier faked the attempt.
+  goal: Say clearly that the courier never came. You still want the parcel, on any day the caller offers.
+  expect:
+    default: {status: [reattempt_scheduled], dispute_logged: true}
+
+- id: ndr_far_date
+  use_case: ndr
+  title: Wants a date beyond the allowed window
+  brands: [trailknot]
+  intent: reattempt
+  persona: You are travelling and only back on 19 November.
+  goal: Ask for delivery on 19 November. If that is not possible, accept the latest date they offer.
+  expect:
+    default: {status: [reattempt_scheduled, cancelled]}
+
+- id: ndr_cancel
+  use_case: ndr
+  title: No longer wants the order
+  brands: [kesar_and_clay]
+  intent: cancel
+  persona: You bought the same cream in a shop after the delivery failed.
+  goal: Cancel the order.
+  expect:
+    default: {status: [cancelled]}

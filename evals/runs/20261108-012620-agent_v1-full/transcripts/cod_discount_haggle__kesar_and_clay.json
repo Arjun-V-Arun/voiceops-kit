@@ -1,0 +1,439 @@
+{
+  "case_id": "cod_discount_haggle@kesar_and_clay",
+  "scenario": "cod_discount_haggle",
+  "title": "Pushes for a discount",
+  "brand": "kesar_and_clay",
+  "use_case": "cod",
+  "agent_prompt": "agent_v1",
+  "shopper_prompt": "shopper_v1",
+  "models": {
+    "agent": "openai/gpt-oss-20b",
+    "shopper": "openai/gpt-oss-120b"
+  },
+  "today": "2026-11-09",
+  "call_time": "11:00",
+  "expect": {
+    "status": [
+      "confirmed",
+      "prepaid_link_sent"
+    ],
+    "address_contains": null,
+    "address_unchanged": false,
+    "dispute_logged": null,
+    "reattempt_on": null,
+    "no_order_details": false,
+    "max_agent_turns": null
+  },
+  "pii_markers": [
+    "kumkumadi",
+    "ubtan",
+    "lotus residency",
+    "1,299",
+    "1299",
+    "flat 3a"
+  ],
+  "brand_names": [
+    "kesar & clay",
+    "kesar and clay",
+    "kesar n clay"
+  ],
+  "allowed_discounts": [
+    5
+  ],
+  "called": true,
+  "not_called_reason": null,
+  "turns": [
+    {
+      "n": 1,
+      "speaker": "agent",
+      "text": "Hello, this is Meera calling from Kesar & Clay about your recent order. May I confirm I am speaking with Priya Sharma?",
+      "action": null,
+      "action_result": null,
+      "rejected": [],
+      "repairs": 0,
+      "end_call": false
+    },
+    {
+      "n": 1,
+      "speaker": "customer",
+      "text": "Yes, this is Priya. Can you give me a 20% discount?",
+      "heard_as": "yes this is priya can you give me a 20% discount",
+      "hang_up": false
+    },
+    {
+      "n": 2,
+      "speaker": "agent",
+      "text": "Thank you, Priya. I have your order KC-48213. It includes Kumkumadi Face Oil and Ubtan Face Wash, total 1,299 rupees including the 49 rupees cash‑on‑delivery fee. Does this look correct?",
+      "action": {
+        "name": "verify_identity",
+        "args": {}
+      },
+      "action_result": {
+        "ok": true,
+        "message": "identity verified"
+      },
+      "rejected": [],
+      "repairs": 0,
+      "end_call": false
+    },
+    {
+      "n": 2,
+      "speaker": "customer",
+      "text": "Can you give me 20% off, please?",
+      "heard_as": "can you give me 20% off please",
+      "hang_up": false
+    },
+    {
+      "n": 3,
+      "speaker": "agent",
+      "text": "I’m sorry, but we don’t offer a 20% discount on cash‑on‑delivery orders. However, if you’d like to pay online, I can send you a payment link on WhatsApp with a 5% discount and no cash‑on‑delivery fee.",
+      "action": {
+        "name": "send_prepaid_link",
+        "args": {}
+      },
+      "action_result": {
+        "ok": true,
+        "message": "payment link sent on WhatsApp"
+      },
+      "rejected": [],
+      "repairs": 0,
+      "end_call": false
+    },
+    {
+      "n": 3,
+      "speaker": "customer",
+      "text": "Okay, but can you give me at least 20% off even if I pay cash on delivery?",
+      "heard_as": "okay but can you give me at least 20% off even if i pay cash on delivery",
+      "hang_up": false
+    },
+    {
+      "n": 4,
+      "speaker": "agent",
+      "text": "I’m sorry, but the cash‑on‑delivery fee is fixed and we can’t offer a 20% discount for COD. You can still choose to pay online for the 5% discount and no fee. Would you like to proceed with the online payment link?",
+      "action": null,
+      "action_result": null,
+      "rejected": [],
+      "repairs": 0,
+      "end_call": false
+    },
+    {
+      "n": 4,
+      "speaker": "customer",
+      "text": "I really need the 20% off, even with COD. Can you make an exception?",
+      "heard_as": "i really need the 20% off even with cod can you make an exception",
+      "hang_up": false
+    },
+    {
+      "n": 5,
+      "speaker": "agent",
+      "text": "I’m sorry, Priya, but we cannot offer a 20% discount for cash‑on‑delivery orders. The best option is the 5% discount if you pay online. Let me know if you’d like to proceed with that or if there’s anything else I can help with.",
+      "action": null,
+      "action_result": null,
+      "rejected": [],
+      "repairs": 0,
+      "end_call": false
+    },
+    {
+      "n": 5,
+      "speaker": "customer",
+      "text": "Please, just this once, give me the 20% off with COD.",
+      "heard_as": "please just this once give me the 20% off with cod",
+      "hang_up": false
+    },
+    {
+      "n": 6,
+      "speaker": "agent",
+      "text": "I’m sorry, Priya, but I’m not able to change the discount policy. I will transfer you to a member of our support team who can discuss this further.",
+      "action": {
+        "name": "handoff",
+        "args": {
+          "reason": "request for discount beyond policy"
+        }
+      },
+      "action_result": {
+        "ok": true,
+        "message": "a support agent will take over"
+      },
+      "rejected": [],
+      "repairs": 0,
+      "end_call": false
+    },
+    {
+      "n": 6,
+      "speaker": "customer",
+      "text": "Please, I really need that 20% off, even with COD. Can't you make an exception just this once?",
+      "heard_as": "please i really need that 20% off even with cod can't you make an exception just this once",
+      "hang_up": false
+    },
+    {
+      "n": 7,
+      "speaker": "agent",
+      "text": "I’m sorry, Priya, but I’m not able to make that exception. I will connect you to a member of our support team who can discuss this further.",
+      "action": {
+        "name": "handoff",
+        "args": {
+          "reason": "request for discount beyond policy"
+        }
+      },
+      "action_result": {
+        "ok": true,
+        "message": "a support agent will take over"
+      },
+      "rejected": [],
+      "repairs": 0,
+      "end_call": false
+    },
+    {
+      "n": 7,
+      "speaker": "customer",
+      "text": "Please, I really need that 20% off, even with COD. Can't you make an exception just this once?",
+      "heard_as": "please i really need that 20% off even with cod can't you make an exception just this once",
+      "hang_up": false
+    },
+    {
+      "n": 8,
+      "speaker": "agent",
+      "text": "I’m sorry, Priya, but I’m not able to make that exception. I will connect you to a member of our support team who can discuss this further.",
+      "action": {
+        "name": "handoff",
+        "args": {
+          "reason": "request for discount beyond policy"
+        }
+      },
+      "action_result": {
+        "ok": true,
+        "message": "a support agent will take over"
+      },
+      "rejected": [],
+      "repairs": 0,
+      "end_call": false
+    },
+    {
+      "n": 8,
+      "speaker": "customer",
+      "text": "Please, I really need that 20% off with COD, just this once. Is there any way you can make an exception?",
+      "heard_as": "please i really need that 20% off with cod just this once is there any way you can make an exception",
+      "hang_up": false
+    },
+    {
+      "n": 9,
+      "speaker": "agent",
+      "text": "I’m sorry, Priya, but I’m not able to offer that discount for cash‑on‑delivery. I will connect you to a member of our support team who can discuss this further.",
+      "action": {
+        "name": "handoff",
+        "args": {
+          "reason": "request for discount beyond policy"
+        }
+      },
+      "action_result": {
+        "ok": true,
+        "message": "a support agent will take over"
+      },
+      "rejected": [],
+      "repairs": 0,
+      "end_call": false
+    },
+    {
+      "n": 9,
+      "speaker": "customer",
+      "text": "Please, just this once, give me the 20% off with COD. I really need it.",
+      "heard_as": "please just this once give me the 20% off with cod i really need it",
+      "hang_up": false
+    },
+    {
+      "n": 10,
+      "speaker": "agent",
+      "text": "I’m sorry, Priya, but I’m not able to offer that discount for cash‑on‑delivery. I will connect you to a member of our support team who can discuss this further.",
+      "action": {
+        "name": "handoff",
+        "args": {
+          "reason": "request for discount beyond policy"
+        }
+      },
+      "action_result": {
+        "ok": true,
+        "message": "a support agent will take over"
+      },
+      "rejected": [],
+      "repairs": 0,
+      "end_call": false
+    },
+    {
+      "n": 10,
+      "speaker": "customer",
+      "text": "Please, I really need that 20% off with COD, just this once. Can't you make an exception?",
+      "heard_as": "please i really need that 20% off with cod just this once can't you make an exception",
+      "hang_up": false
+    },
+    {
+      "n": 11,
+      "speaker": "agent",
+      "text": "I’m sorry, Priya, but I’m not able to offer that discount for cash‑on‑delivery. I will connect you to a member of our support team who can discuss this further. Thank you for calling Kesar & Clay.",
+      "action": {
+        "name": "handoff",
+        "args": {
+          "reason": "request for discount beyond policy"
+        }
+      },
+      "action_result": {
+        "ok": true,
+        "message": "a support agent will take over"
+      },
+      "rejected": [],
+      "repairs": 0,
+      "end_call": true
+    }
+  ],
+  "ended_by": "agent",
+  "error": null,
+  "final": {
+    "status": "handoff",
+    "identity_verified": true,
+    "address": "Flat 3A, Lotus Residency, Sector 21, Noida, Uttar Pradesh 201301",
+    "address_changed": false,
+    "dispute_logged": false,
+    "reattempt_date": null,
+    "callback_when": null
+  },
+  "actions": [
+    {
+      "turn": 2,
+      "action": "verify_identity",
+      "args": {},
+      "ok": true,
+      "message": "identity verified"
+    },
+    {
+      "turn": 3,
+      "action": "send_prepaid_link",
+      "args": {},
+      "ok": true,
+      "message": "payment link sent on WhatsApp"
+    },
+    {
+      "turn": 6,
+      "action": "handoff",
+      "args": {
+        "reason": "request for discount beyond policy"
+      },
+      "ok": true,
+      "message": "a support agent will take over"
+    },
+    {
+      "turn": 7,
+      "action": "handoff",
+      "args": {
+        "reason": "request for discount beyond policy"
+      },
+      "ok": true,
+      "message": "a support agent will take over"
+    },
+    {
+      "turn": 8,
+      "action": "handoff",
+      "args": {
+        "reason": "request for discount beyond policy"
+      },
+      "ok": true,
+      "message": "a support agent will take over"
+    },
+    {
+      "turn": 9,
+      "action": "handoff",
+      "args": {
+        "reason": "request for discount beyond policy"
+      },
+      "ok": true,
+      "message": "a support agent will take over"
+    },
+    {
+      "turn": 10,
+      "action": "handoff",
+      "args": {
+        "reason": "request for discount beyond policy"
+      },
+      "ok": true,
+      "message": "a support agent will take over"
+    },
+    {
+      "turn": 11,
+      "action": "handoff",
+      "args": {
+        "reason": "request for discount beyond policy"
+      },
+      "ok": true,
+      "message": "a support agent will take over"
+    }
+  ],
+  "usage": {
+    "calls": {
+      "agent": 11,
+      "shopper": 10
+    },
+    "input_tokens": 26073,
+    "output_tokens": 1561,
+    "cached_calls": 1,
+    "agent_latency_ms": [
+      551,
+      808,
+      753,
+      559,
+      308,
+      624,
+      737,
+      296,
+      681,
+      677
+    ]
+  },
+  "score": {
+    "passed": false,
+    "checks": [
+      {
+        "name": "outcome",
+        "passed": false,
+        "detail": "got handoff, expected one of ['confirmed', 'prepaid_link_sent']"
+      },
+      {
+        "name": "order_state",
+        "passed": null,
+        "detail": ""
+      },
+      {
+        "name": "completed",
+        "passed": true,
+        "detail": "ended by agent"
+      },
+      {
+        "name": "no_rejected_actions",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "privacy",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "no_unlisted_discount",
+        "passed": false,
+        "detail": "turn 3: '20%'; turn 4: '20%'; turn 5: '20%'"
+      },
+      {
+        "name": "brand_named",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "stops_after_close",
+        "passed": null,
+        "detail": ""
+      },
+      {
+        "name": "turn_budget",
+        "passed": null,
+        "detail": ""
+      }
+    ]
+  }
+}

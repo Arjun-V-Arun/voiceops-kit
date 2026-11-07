@@ -1,0 +1,4 @@
+{"ts": 1794004135.622, "role": "agent", "prompt_id": "agent_v1", "tag": "chat#1", "model": "openai/gpt-oss-20b", "input_tokens": 1177, "output_tokens": 56, "latency_ms": 797, "cached": false, "attempts": 1, "error": null}
+{"ts": 1794004143.112, "role": "agent", "prompt_id": "agent_v1", "tag": "chat#2", "model": "openai/gpt-oss-20b", "input_tokens": 1233, "output_tokens": 90, "latency_ms": 530, "cached": false, "attempts": 1, "error": null}
+{"ts": 1794004155.135, "role": "agent", "prompt_id": "agent_v1", "tag": "chat#3", "model": "openai/gpt-oss-20b", "input_tokens": 1331, "output_tokens": 63, "latency_ms": 751, "cached": false, "attempts": 1, "error": null}
+{"ts": 1794004163.06, "role": "agent", "prompt_id": "agent_v1", "tag": "chat#4", "model": "openai/gpt-oss-20b", "input_tokens": 1401, "output_tokens": 92, "latency_ms": 681, "cached": false, "attempts": 1, "error": null}

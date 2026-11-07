@@ -1,0 +1,72 @@
+{
+  "case_id": "cod_outside_window@trailknot",
+  "scenario": "cod_outside_window",
+  "title": "Call scheduled after the calling window",
+  "brand": "trailknot",
+  "use_case": "cod",
+  "agent_prompt": "agent_v1",
+  "shopper_prompt": "shopper_v1",
+  "models": {
+    "agent": "openai/gpt-oss-20b",
+    "shopper": "openai/gpt-oss-120b"
+  },
+  "today": "2026-11-09",
+  "call_time": "21:30",
+  "expect": {
+    "status": [
+      "not_called"
+    ],
+    "address_contains": null,
+    "address_unchanged": false,
+    "dispute_logged": null,
+    "reattempt_on": null,
+    "no_order_details": false,
+    "max_agent_turns": null
+  },
+  "pii_markers": [
+    "ridge runner",
+    "hsr layout",
+    "2,899",
+    "2899",
+    "no. 14"
+  ],
+  "brand_names": [
+    "trailknot"
+  ],
+  "allowed_discounts": [],
+  "called": false,
+  "not_called_reason": "21:30 is outside the calling window 10:00-21:00",
+  "turns": [],
+  "ended_by": "guard",
+  "error": null,
+  "final": {
+    "status": "not_called",
+    "identity_verified": false,
+    "address": "No. 14, 2nd Cross, HSR Layout Sector 3, Bengaluru, Karnataka 560102",
+    "address_changed": false,
+    "dispute_logged": false,
+    "reattempt_date": null,
+    "callback_when": null
+  },
+  "actions": [],
+  "usage": {
+    "calls": {
+      "agent": 0,
+      "shopper": 0
+    },
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "cached_calls": 0,
+    "agent_latency_ms": []
+  },
+  "score": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "outcome",
+        "passed": true,
+        "detail": "got not_called, expected one of ['not_called']"
+      }
+    ]
+  }
+}

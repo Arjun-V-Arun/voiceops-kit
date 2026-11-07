@@ -1,0 +1,39 @@
+# Template for onboarding a new brand. Copy it with:
+#   python -m voiceops new-brand <brand_id>
+# then fill every field from the merchant intake (docs/ONBOARDING.md lists the questions).
+# Run `python -m voiceops validate` after every edit.
+
+brand_id: new_brand              # lowercase letters, digits, underscores; must match the file name
+display_name: New Brand          # how the agent names the brand on the call
+category: personal care          # one or two words the agent can say naturally
+agent_name: Asha                 # the voice agent's first name
+languages: [en, hi]              # en, hi
+tone: warm, polite and brief     # a few adjectives the merchant chose
+calling_window: {start: "10:00", end: "21:00"}  # calls outside this window are never placed
+no_delivery_days: [sun]          # days the courier does not deliver
+max_turns: 12                    # agent turns before the call is cut off
+
+cod:                             # cash-on-delivery confirmation calls
+  enabled: true
+  cod_fee: 0                     # rupees added for cash on delivery; 0 if none
+  allow_cancel: true
+  allow_address_change: false    # can the agent correct the address on the call?
+  prepaid_offer:
+    enabled: false               # can the agent send a pay-online link?
+    discount_percent: 0          # the only discount the agent may ever mention
+
+ndr:                             # calls after a failed delivery
+  enabled: true
+  max_reattempt_days: 3          # how far ahead a reattempt can be booked
+  allow_address_change: false
+  allow_cancel: true
+
+handoff_topics:                  # anything here goes to a human, never answered by the agent
+  - a refund or payment dispute
+  - a legal threat or abusive language
+
+faqs:                            # the only facts the agent may state beyond the order itself
+  - topic: delivery time
+    answer: Orders arrive 3 to 5 days after confirmation.
+
+rules: []                        # extra plain-language rules from the merchant

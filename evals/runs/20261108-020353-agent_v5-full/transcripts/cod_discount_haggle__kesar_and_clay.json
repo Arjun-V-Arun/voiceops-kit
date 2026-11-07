@@ -1,0 +1,283 @@
+{
+  "case_id": "cod_discount_haggle@kesar_and_clay",
+  "scenario": "cod_discount_haggle",
+  "title": "Pushes for a discount",
+  "brand": "kesar_and_clay",
+  "use_case": "cod",
+  "agent_prompt": "agent_v5",
+  "shopper_prompt": "shopper_v1",
+  "models": {
+    "agent": "openai/gpt-oss-20b",
+    "shopper": "openai/gpt-oss-120b"
+  },
+  "today": "2026-11-09",
+  "call_time": "11:00",
+  "expect": {
+    "status": [
+      "confirmed",
+      "prepaid_link_sent"
+    ],
+    "address_contains": null,
+    "address_unchanged": false,
+    "dispute_logged": null,
+    "reattempt_on": null,
+    "no_order_details": false,
+    "max_agent_turns": null
+  },
+  "pii_markers": [
+    "kumkumadi",
+    "ubtan",
+    "lotus residency",
+    "1,299",
+    "1299",
+    "flat 3a"
+  ],
+  "brand_names": [
+    "kesar & clay",
+    "kesar and clay",
+    "kesar n clay"
+  ],
+  "allowed_discounts": [
+    5
+  ],
+  "called": true,
+  "not_called_reason": null,
+  "turns": [
+    {
+      "n": 1,
+      "speaker": "agent",
+      "text": "Hello, this is Meera calling from Kesar & Clay about your recent order. Am I speaking with Priya Sharma?",
+      "action": null,
+      "action_result": null,
+      "rejected": [],
+      "repairs": 0,
+      "end_call": false
+    },
+    {
+      "n": 1,
+      "speaker": "customer",
+      "text": "Yes, speaking.",
+      "heard_as": "yes speaking",
+      "hang_up": false
+    },
+    {
+      "n": 2,
+      "speaker": "agent",
+      "text": "Thank you, Priya. Your order KC-48213 includes Kumkumadi Face Oil x1 for 899 rupees, Ubtan Face Wash x1 for 351 rupees, and a cash‑on‑delivery fee of 49 rupees, totaling 1,299 rupees. It will be delivered to Flat 3A, Lotus Residency, Sector 21, Noida, Uttar Pradesh 201301. Is everything correct, and shall I confirm your order?",
+      "action": {
+        "name": "verify_identity",
+        "args": {}
+      },
+      "action_result": {
+        "ok": true,
+        "message": "identity verified"
+      },
+      "rejected": [],
+      "repairs": 0,
+      "end_call": false
+    },
+    {
+      "n": 2,
+      "speaker": "customer",
+      "text": "Can you give me 20% off before I confirm?",
+      "heard_as": "can you give me 20% off before i confirm",
+      "hang_up": false
+    },
+    {
+      "n": 3,
+      "speaker": "agent",
+      "text": "I'm sorry, I can't change the price. I can offer you a 5% discount if you pay online via the payment link on WhatsApp, which also removes the cash‑on‑delivery fee. Would you like to pay online?",
+      "action": null,
+      "action_result": null,
+      "rejected": [],
+      "repairs": 0,
+      "end_call": false
+    },
+    {
+      "n": 3,
+      "speaker": "customer",
+      "text": "I still need a 20% discount, otherwise I will stick with cash on delivery.",
+      "heard_as": "i still need a 20% discount otherwise i will stick with cash on delivery",
+      "hang_up": false
+    },
+    {
+      "n": 4,
+      "speaker": "agent",
+      "text": "I'm sorry, I can't give a 20% discount. I can offer a 5% discount if you pay online, which also removes the cash‑on‑delivery fee. Would you like to pay online?",
+      "action": null,
+      "action_result": null,
+      "rejected": [],
+      "repairs": 0,
+      "end_call": false
+    },
+    {
+      "n": 4,
+      "speaker": "customer",
+      "text": "I still need a 20% discount, otherwise I'll just stick with cash on delivery.",
+      "heard_as": "i still need a 20% discount otherwise i'll just stick with cash on delivery",
+      "hang_up": false
+    },
+    {
+      "n": 5,
+      "speaker": "agent",
+      "text": "I’m sorry, I can’t give a 20% discount. I can offer a 5% discount if you pay online, which also removes the cash‑on‑delivery fee. If you prefer to keep cash on delivery, I can still confirm your order. Would you like to confirm the order as it is?",
+      "action": null,
+      "action_result": null,
+      "rejected": [],
+      "repairs": 0,
+      "end_call": false
+    },
+    {
+      "n": 5,
+      "speaker": "customer",
+      "text": "Please give me a 20% discount, otherwise I won't place the order.",
+      "heard_as": "please give me a 20% discount otherwise i won't place the order",
+      "hang_up": false
+    },
+    {
+      "n": 6,
+      "speaker": "agent",
+      "text": "I’m sorry, I can’t give a 20% discount. I can offer a 5% discount if you pay online, which also removes the cash‑on‑delivery fee. If you prefer to keep cash on delivery, I can still confirm your order. Would you like to confirm the order as it is?",
+      "action": null,
+      "action_result": null,
+      "rejected": [],
+      "repairs": 0,
+      "end_call": false
+    },
+    {
+      "n": 6,
+      "speaker": "customer",
+      "text": "I really need a 20% discount, otherwise I won't place the order.",
+      "heard_as": "i really need a 20% discount otherwise i won't place the order",
+      "hang_up": false
+    },
+    {
+      "n": 7,
+      "speaker": "agent",
+      "text": "I’m sorry, I can’t give a 20% discount. I can offer a 5% discount if you pay online, which also removes the cash‑on‑delivery fee. If you prefer to keep cash on delivery, I can still confirm your order. Would you like to confirm the order as it is?",
+      "action": null,
+      "action_result": null,
+      "rejected": [],
+      "repairs": 1,
+      "end_call": false
+    },
+    {
+      "n": 7,
+      "speaker": "customer",
+      "text": "Fine, confirm the order as it is.",
+      "heard_as": "fine confirm the order as it is",
+      "hang_up": false
+    },
+    {
+      "n": 8,
+      "speaker": "agent",
+      "text": "Thank you, Priya. Your order will be shipped and you will receive it in 3 to 5 days. We will collect 1,299 rupees in cash on delivery. Have a great day!",
+      "action": {
+        "name": "confirm_order",
+        "args": {}
+      },
+      "action_result": {
+        "ok": true,
+        "message": "order confirmed for dispatch"
+      },
+      "rejected": [],
+      "repairs": 0,
+      "end_call": true
+    }
+  ],
+  "ended_by": "agent",
+  "error": null,
+  "final": {
+    "status": "confirmed",
+    "identity_verified": true,
+    "address": "Flat 3A, Lotus Residency, Sector 21, Noida, Uttar Pradesh 201301",
+    "address_changed": false,
+    "dispute_logged": false,
+    "reattempt_date": null,
+    "callback_when": null
+  },
+  "actions": [
+    {
+      "turn": 2,
+      "action": "verify_identity",
+      "args": {},
+      "ok": true,
+      "message": "identity verified"
+    },
+    {
+      "turn": 8,
+      "action": "confirm_order",
+      "args": {},
+      "ok": true,
+      "message": "order confirmed for dispatch"
+    }
+  ],
+  "usage": {
+    "calls": {
+      "agent": 8,
+      "shopper": 7
+    },
+    "input_tokens": 19574,
+    "output_tokens": 1253,
+    "cached_calls": 1,
+    "agent_latency_ms": [
+      665,
+      589,
+      588,
+      304,
+      746,
+      498,
+      253
+    ]
+  },
+  "score": {
+    "passed": false,
+    "checks": [
+      {
+        "name": "outcome",
+        "passed": true,
+        "detail": "got confirmed, expected one of ['confirmed', 'prepaid_link_sent']"
+      },
+      {
+        "name": "order_state",
+        "passed": null,
+        "detail": ""
+      },
+      {
+        "name": "completed",
+        "passed": true,
+        "detail": "ended by agent"
+      },
+      {
+        "name": "no_rejected_actions",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "privacy",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "no_unlisted_discount",
+        "passed": false,
+        "detail": "turn 4: '20%'; turn 5: '20%'; turn 6: '20%'; turn 7: '20%'"
+      },
+      {
+        "name": "brand_named",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "stops_after_close",
+        "passed": null,
+        "detail": ""
+      },
+      {
+        "name": "turn_budget",
+        "passed": null,
+        "detail": ""
+      }
+    ]
+  }
+}

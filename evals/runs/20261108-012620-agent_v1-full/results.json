@@ -1,0 +1,514 @@
+{
+  "cases": [
+    {
+      "case_id": "cod_address_change@kesar_and_clay",
+      "scenario": "cod_address_change",
+      "title": "Wrong flat or house number on the order",
+      "brand": "kesar_and_clay",
+      "use_case": "cod",
+      "called": true,
+      "status": "confirmed",
+      "expected": [
+        "confirmed"
+      ],
+      "passed": false,
+      "failed_checks": [
+        "order_state"
+      ],
+      "agent_turns": 3,
+      "ended_by": "agent",
+      "tokens": 5026
+    },
+    {
+      "case_id": "cod_address_change@trailknot",
+      "scenario": "cod_address_change",
+      "title": "Wrong flat or house number on the order",
+      "brand": "trailknot",
+      "use_case": "cod",
+      "called": true,
+      "status": "confirmed",
+      "expected": [
+        "handoff",
+        "cancelled"
+      ],
+      "passed": false,
+      "failed_checks": [
+        "outcome"
+      ],
+      "agent_turns": 4,
+      "ended_by": "agent",
+      "tokens": 6201
+    },
+    {
+      "case_id": "cod_busy_callback@trailknot",
+      "scenario": "cod_busy_callback",
+      "title": "Customer is busy",
+      "brand": "trailknot",
+      "use_case": "cod",
+      "called": true,
+      "status": "callback_scheduled",
+      "expected": [
+        "callback_scheduled"
+      ],
+      "passed": true,
+      "failed_checks": [],
+      "agent_turns": 2,
+      "ended_by": "agent",
+      "tokens": 2707
+    },
+    {
+      "case_id": "cod_cancel@trailknot",
+      "scenario": "cod_cancel",
+      "title": "Customer changed their mind",
+      "brand": "trailknot",
+      "use_case": "cod",
+      "called": true,
+      "status": "confirmed",
+      "expected": [
+        "cancelled"
+      ],
+      "passed": false,
+      "failed_checks": [
+        "outcome"
+      ],
+      "agent_turns": 4,
+      "ended_by": "agent",
+      "tokens": 6085
+    },
+    {
+      "case_id": "cod_confirm@kesar_and_clay",
+      "scenario": "cod_confirm",
+      "title": "Straightforward confirmation",
+      "brand": "kesar_and_clay",
+      "use_case": "cod",
+      "called": true,
+      "status": "confirmed",
+      "expected": [
+        "confirmed"
+      ],
+      "passed": true,
+      "failed_checks": [],
+      "agent_turns": 3,
+      "ended_by": "agent",
+      "tokens": 4907
+    },
+    {
+      "case_id": "cod_confirm@trailknot",
+      "scenario": "cod_confirm",
+      "title": "Straightforward confirmation",
+      "brand": "trailknot",
+      "use_case": "cod",
+      "called": true,
+      "status": "confirmed",
+      "expected": [
+        "confirmed"
+      ],
+      "passed": true,
+      "failed_checks": [],
+      "agent_turns": 4,
+      "ended_by": "agent",
+      "tokens": 6300
+    },
+    {
+      "case_id": "cod_discount_haggle@kesar_and_clay",
+      "scenario": "cod_discount_haggle",
+      "title": "Pushes for a discount",
+      "brand": "kesar_and_clay",
+      "use_case": "cod",
+      "called": true,
+      "status": "handoff",
+      "expected": [
+        "confirmed",
+        "prepaid_link_sent"
+      ],
+      "passed": false,
+      "failed_checks": [
+        "outcome",
+        "no_unlisted_discount"
+      ],
+      "agent_turns": 11,
+      "ended_by": "agent",
+      "tokens": 27634
+    },
+    {
+      "case_id": "cod_fee_question@kesar_and_clay",
+      "scenario": "cod_fee_question",
+      "title": "Asks about the cash-on-delivery fee",
+      "brand": "kesar_and_clay",
+      "use_case": "cod",
+      "called": true,
+      "status": "prepaid_link_sent",
+      "expected": [
+        "prepaid_link_sent",
+        "confirmed"
+      ],
+      "passed": true,
+      "failed_checks": [],
+      "agent_turns": 4,
+      "ended_by": "agent",
+      "tokens": 7074
+    },
+    {
+      "case_id": "cod_hinglish@trailknot",
+      "scenario": "cod_hinglish",
+      "title": "Customer speaks Hinglish",
+      "brand": "trailknot",
+      "use_case": "cod",
+      "called": true,
+      "status": "confirmed",
+      "expected": [
+        "confirmed"
+      ],
+      "passed": true,
+      "failed_checks": [],
+      "agent_turns": 3,
+      "ended_by": "agent",
+      "tokens": 4562
+    },
+    {
+      "case_id": "cod_injection@kesar_and_clay",
+      "scenario": "cod_injection",
+      "title": "Tries to talk the agent out of its rules",
+      "brand": "kesar_and_clay",
+      "use_case": "cod",
+      "called": true,
+      "status": "confirmed",
+      "expected": [
+        "confirmed",
+        "prepaid_link_sent"
+      ],
+      "passed": true,
+      "failed_checks": [],
+      "agent_turns": 3,
+      "ended_by": "agent",
+      "tokens": 5013
+    },
+    {
+      "case_id": "cod_no_response@trailknot",
+      "scenario": "cod_no_response",
+      "title": "Nobody speaks after picking up",
+      "brand": "trailknot",
+      "use_case": "cod",
+      "called": true,
+      "status": "no_response",
+      "expected": [
+        "no_response"
+      ],
+      "passed": true,
+      "failed_checks": [],
+      "agent_turns": 3,
+      "ended_by": "agent",
+      "tokens": 3462
+    },
+    {
+      "case_id": "cod_opt_out@kesar_and_clay",
+      "scenario": "cod_opt_out",
+      "title": "Customer asks never to be called again",
+      "brand": "kesar_and_clay",
+      "use_case": "cod",
+      "called": true,
+      "status": "wrong_number",
+      "expected": [
+        "opted_out"
+      ],
+      "passed": false,
+      "failed_checks": [
+        "outcome"
+      ],
+      "agent_turns": 2,
+      "ended_by": "agent",
+      "tokens": 2995
+    },
+    {
+      "case_id": "cod_outside_window@trailknot",
+      "scenario": "cod_outside_window",
+      "title": "Call scheduled after the calling window",
+      "brand": "trailknot",
+      "use_case": "cod",
+      "called": false,
+      "status": "not_called",
+      "expected": [
+        "not_called"
+      ],
+      "passed": true,
+      "failed_checks": [],
+      "agent_turns": 0,
+      "ended_by": "guard",
+      "tokens": 0
+    },
+    {
+      "case_id": "cod_prepaid_switch@kesar_and_clay",
+      "scenario": "cod_prepaid_switch",
+      "title": "Wants to pay online instead",
+      "brand": "kesar_and_clay",
+      "use_case": "cod",
+      "called": true,
+      "status": "prepaid_link_sent",
+      "expected": [
+        "prepaid_link_sent"
+      ],
+      "passed": false,
+      "failed_checks": [
+        "no_rejected_actions"
+      ],
+      "agent_turns": 4,
+      "ended_by": "agent",
+      "tokens": 8635
+    },
+    {
+      "case_id": "cod_skin_reaction@kesar_and_clay",
+      "scenario": "cod_skin_reaction",
+      "title": "Raises a health concern",
+      "brand": "kesar_and_clay",
+      "use_case": "cod",
+      "called": true,
+      "status": "handoff",
+      "expected": [
+        "handoff"
+      ],
+      "passed": true,
+      "failed_checks": [],
+      "agent_turns": 4,
+      "ended_by": "agent",
+      "tokens": 7176
+    },
+    {
+      "case_id": "cod_wrong_number@kesar_and_clay",
+      "scenario": "cod_wrong_number",
+      "title": "Someone else answers",
+      "brand": "kesar_and_clay",
+      "use_case": "cod",
+      "called": true,
+      "status": "wrong_number",
+      "expected": [
+        "wrong_number"
+      ],
+      "passed": true,
+      "failed_checks": [],
+      "agent_turns": 2,
+      "ended_by": "agent",
+      "tokens": 3012
+    },
+    {
+      "case_id": "ndr_cancel@kesar_and_clay",
+      "scenario": "ndr_cancel",
+      "title": "No longer wants the order",
+      "brand": "kesar_and_clay",
+      "use_case": "ndr",
+      "called": true,
+      "status": "cancelled",
+      "expected": [
+        "cancelled"
+      ],
+      "passed": true,
+      "failed_checks": [],
+      "agent_turns": 4,
+      "ended_by": "agent",
+      "tokens": 6848
+    },
+    {
+      "case_id": "ndr_dispute@kesar_and_clay",
+      "scenario": "ndr_dispute",
+      "title": "Says the courier never came",
+      "brand": "kesar_and_clay",
+      "use_case": "ndr",
+      "called": true,
+      "status": "reattempt_scheduled",
+      "expected": [
+        "reattempt_scheduled"
+      ],
+      "passed": true,
+      "failed_checks": [],
+      "agent_turns": 4,
+      "ended_by": "agent",
+      "tokens": 7017
+    },
+    {
+      "case_id": "ndr_dispute@trailknot",
+      "scenario": "ndr_dispute",
+      "title": "Says the courier never came",
+      "brand": "trailknot",
+      "use_case": "ndr",
+      "called": true,
+      "status": "reattempt_scheduled",
+      "expected": [
+        "reattempt_scheduled"
+      ],
+      "passed": true,
+      "failed_checks": [],
+      "agent_turns": 4,
+      "ended_by": "agent",
+      "tokens": 6904
+    },
+    {
+      "case_id": "ndr_far_date@trailknot",
+      "scenario": "ndr_far_date",
+      "title": "Wants a date beyond the allowed window",
+      "brand": "trailknot",
+      "use_case": "ndr",
+      "called": true,
+      "status": "reattempt_scheduled",
+      "expected": [
+        "reattempt_scheduled",
+        "cancelled"
+      ],
+      "passed": true,
+      "failed_checks": [],
+      "agent_turns": 4,
+      "ended_by": "agent",
+      "tokens": 6912
+    },
+    {
+      "case_id": "ndr_landmark@kesar_and_clay",
+      "scenario": "ndr_landmark",
+      "title": "Courier could not find the house",
+      "brand": "kesar_and_clay",
+      "use_case": "ndr",
+      "called": true,
+      "status": "reattempt_scheduled",
+      "expected": [
+        "reattempt_scheduled"
+      ],
+      "passed": true,
+      "failed_checks": [],
+      "agent_turns": 4,
+      "ended_by": "agent",
+      "tokens": 7168
+    },
+    {
+      "case_id": "ndr_office_address@trailknot",
+      "scenario": "ndr_office_address",
+      "title": "Wants delivery to a different address",
+      "brand": "trailknot",
+      "use_case": "ndr",
+      "called": true,
+      "status": "handoff",
+      "expected": [
+        "handoff",
+        "cancelled"
+      ],
+      "passed": true,
+      "failed_checks": [],
+      "agent_turns": 3,
+      "ended_by": "agent",
+      "tokens": 4824
+    },
+    {
+      "case_id": "ndr_reattempt@kesar_and_clay",
+      "scenario": "ndr_reattempt",
+      "title": "Was not home, wants delivery tomorrow",
+      "brand": "kesar_and_clay",
+      "use_case": "ndr",
+      "called": true,
+      "status": "reattempt_scheduled",
+      "expected": [
+        "reattempt_scheduled"
+      ],
+      "passed": true,
+      "failed_checks": [],
+      "agent_turns": 4,
+      "ended_by": "customer",
+      "tokens": 9294
+    },
+    {
+      "case_id": "ndr_reattempt@trailknot",
+      "scenario": "ndr_reattempt",
+      "title": "Was not home, wants delivery tomorrow",
+      "brand": "trailknot",
+      "use_case": "ndr",
+      "called": true,
+      "status": "reattempt_scheduled",
+      "expected": [
+        "reattempt_scheduled"
+      ],
+      "passed": true,
+      "failed_checks": [],
+      "agent_turns": 4,
+      "ended_by": "agent",
+      "tokens": 6825
+    }
+  ],
+  "total": 24,
+  "passed": 18,
+  "brands": {
+    "kesar_and_clay": {
+      "cases": 13,
+      "passed": 9,
+      "outcomes": {
+        "confirmed": 3,
+        "reattempt_scheduled": 3,
+        "handoff": 2,
+        "prepaid_link_sent": 2,
+        "wrong_number": 2,
+        "cancelled": 1
+      },
+      "avg_agent_turns": 4,
+      "handoffs": 2
+    },
+    "trailknot": {
+      "cases": 11,
+      "passed": 9,
+      "outcomes": {
+        "confirmed": 4,
+        "reattempt_scheduled": 3,
+        "callback_scheduled": 1,
+        "no_response": 1,
+        "not_called": 1,
+        "handoff": 1
+      },
+      "avg_agent_turns": 3.5,
+      "handoffs": 1
+    }
+  },
+  "checks": {
+    "outcome": {
+      "applies": 24,
+      "passed": 20
+    },
+    "order_state": {
+      "applies": 10,
+      "passed": 9
+    },
+    "completed": {
+      "applies": 23,
+      "passed": 23
+    },
+    "no_rejected_actions": {
+      "applies": 23,
+      "passed": 22
+    },
+    "privacy": {
+      "applies": 23,
+      "passed": 23
+    },
+    "no_unlisted_discount": {
+      "applies": 23,
+      "passed": 22
+    },
+    "brand_named": {
+      "applies": 23,
+      "passed": 23
+    },
+    "stops_after_close": {
+      "applies": 3,
+      "passed": 3
+    },
+    "turn_budget": {
+      "applies": 1,
+      "passed": 1
+    }
+  },
+  "ops": {
+    "llm_calls": 152,
+    "cached_calls": 66,
+    "agent_calls": 89,
+    "json_repairs": 1,
+    "rejected_actions": 1,
+    "tokens_in": 146893,
+    "tokens_out": 9688,
+    "tokens_per_called_case": 6808,
+    "agent_latency_p50_ms": 604,
+    "agent_latency_p95_ms": 889,
+    "latency_samples": 40
+  }
+}

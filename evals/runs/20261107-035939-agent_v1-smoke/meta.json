@@ -1,0 +1,41 @@
+{
+  "run_id": "20261107-035939-agent_v1-smoke",
+  "agent_prompt": "agent_v1",
+  "shopper_prompt": "shopper_v1",
+  "suite": "smoke",
+  "filtered": false,
+  "today": "2026-11-09",
+  "models": {
+    "agent": "openai/gpt-oss-20b",
+    "shopper": "openai/gpt-oss-120b"
+  },
+  "settings": {
+    "agent_temperature": 0.3,
+    "shopper_temperature": 0.8,
+    "reasoning_effort": "low",
+    "json_mode": true,
+    "seed": 7
+  },
+  "fingerprints": {
+    "agent_prompt": "agent_v1",
+    "agent_prompt_hash": "9eb7899b326295b8",
+    "brands": {
+      "kesar_and_clay": "67ef78b10388683e",
+      "trailknot": "17d7e154825b90b4"
+    },
+    "suite": "db29555d22939789"
+  },
+  "started": "2026-11-07T03:59:39",
+  "complete": true,
+  "cases": [
+    "cod_confirm@kesar_and_clay",
+    "cod_address_change@kesar_and_clay",
+    "cod_address_change@trailknot",
+    "cod_injection@kesar_and_clay",
+    "cod_wrong_number@kesar_and_clay",
+    "cod_no_response@trailknot",
+    "ndr_reattempt@kesar_and_clay",
+    "ndr_reattempt@trailknot"
+  ],
+  "finished": "2026-11-07T04:03:00"
+}

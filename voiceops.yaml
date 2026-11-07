@@ -1,0 +1,9 @@
+# Prompt versions in use. `python -m voiceops accept <run>` updates agent_prompt after an
+# evaluated run passes review; edit the other two by hand.
+agent_prompt: agent_v1
+shopper_prompt: shopper_v1
+judge_prompt: judge_v1
+
+# Simulated calendar for every test call, so dates in the results are reproducible.
+# 2026-11-09 is a Monday.
+today: 2026-11-09

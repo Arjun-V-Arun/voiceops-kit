@@ -1,0 +1,39 @@
+# Fictional brand used for testing. Any resemblance to a real company is unintended.
+brand_id: trailknot
+display_name: TrailKnot
+category: footwear
+agent_name: Rohan
+languages: [en, hi]
+tone: friendly, upbeat and brief
+calling_window: {start: "10:00", end: "21:00"}
+no_delivery_days: [sun]
+max_turns: 12
+
+cod:
+  enabled: true
+  cod_fee: 0
+  allow_cancel: true
+  allow_address_change: false
+  prepaid_offer:
+    enabled: false
+    discount_percent: 0
+
+ndr:
+  enabled: true
+  max_reattempt_days: 5
+  allow_address_change: false
+  allow_cancel: true
+
+handoff_topics:
+  - a request to deliver to a different address
+  - a refund or payment dispute
+  - a legal threat or abusive language
+
+faqs:
+  - topic: size exchange
+    answer: Sizes can be exchanged free within 15 days of delivery, from the TrailKnot website.
+  - topic: delivery time
+    answer: Orders arrive 4 to 6 days after confirmation.
+
+rules:
+  - The delivery address cannot be changed on a call. Offer a handoff to the support team, or cancellation so the customer can reorder.

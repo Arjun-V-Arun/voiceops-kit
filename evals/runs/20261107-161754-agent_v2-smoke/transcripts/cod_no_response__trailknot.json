@@ -1,0 +1,174 @@
+{
+  "case_id": "cod_no_response@trailknot",
+  "scenario": "cod_no_response",
+  "title": "Nobody speaks after picking up",
+  "brand": "trailknot",
+  "use_case": "cod",
+  "agent_prompt": "agent_v2",
+  "shopper_prompt": "shopper_v1",
+  "models": {
+    "agent": "openai/gpt-oss-20b",
+    "shopper": "openai/gpt-oss-120b"
+  },
+  "today": "2026-11-09",
+  "call_time": "11:00",
+  "expect": {
+    "status": [
+      "no_response"
+    ],
+    "address_contains": null,
+    "address_unchanged": false,
+    "dispute_logged": null,
+    "reattempt_on": null,
+    "no_order_details": false,
+    "max_agent_turns": 4
+  },
+  "pii_markers": [
+    "ridge runner",
+    "hsr layout",
+    "2,899",
+    "2899",
+    "no. 14"
+  ],
+  "brand_names": [
+    "trailknot"
+  ],
+  "allowed_discounts": [],
+  "called": true,
+  "not_called_reason": null,
+  "turns": [
+    {
+      "n": 1,
+      "speaker": "agent",
+      "text": "Hello! This is Rohan calling from TrailKnot about your recent order. May I confirm if I am speaking with Rahul Nair?",
+      "action": null,
+      "action_result": null,
+      "rejected": [],
+      "repairs": 0,
+      "end_call": false
+    },
+    {
+      "n": 1,
+      "speaker": "customer",
+      "text": "[silence]",
+      "heard_as": "",
+      "hang_up": false
+    },
+    {
+      "n": 2,
+      "speaker": "agent",
+      "text": "Just checking in to confirm your order details. Please let me know if you are Rahul Nair.",
+      "action": null,
+      "action_result": null,
+      "rejected": [],
+      "repairs": 0,
+      "end_call": false
+    },
+    {
+      "n": 2,
+      "speaker": "customer",
+      "text": "[silence]",
+      "heard_as": "",
+      "hang_up": false
+    },
+    {
+      "n": 3,
+      "speaker": "agent",
+      "text": "",
+      "action": {
+        "name": "mark_no_response",
+        "args": {}
+      },
+      "action_result": {
+        "ok": true,
+        "message": "marked as no response"
+      },
+      "rejected": [],
+      "repairs": 0,
+      "end_call": true
+    }
+  ],
+  "ended_by": "agent",
+  "error": null,
+  "final": {
+    "status": "no_response",
+    "identity_verified": false,
+    "address": "No. 14, 2nd Cross, HSR Layout Sector 3, Bengaluru, Karnataka 560102",
+    "address_changed": false,
+    "dispute_logged": false,
+    "reattempt_date": null,
+    "callback_when": null
+  },
+  "actions": [
+    {
+      "turn": 3,
+      "action": "mark_no_response",
+      "args": {},
+      "ok": true,
+      "message": "marked as no response"
+    }
+  ],
+  "usage": {
+    "calls": {
+      "agent": 3,
+      "shopper": 0
+    },
+    "input_tokens": 3604,
+    "output_tokens": 163,
+    "cached_calls": 1,
+    "agent_latency_ms": [
+      667,
+      534
+    ]
+  },
+  "score": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "outcome",
+        "passed": true,
+        "detail": "got no_response, expected one of ['no_response']"
+      },
+      {
+        "name": "order_state",
+        "passed": null,
+        "detail": ""
+      },
+      {
+        "name": "completed",
+        "passed": true,
+        "detail": "ended by agent"
+      },
+      {
+        "name": "no_rejected_actions",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "privacy",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "no_unlisted_discount",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "brand_named",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "stops_after_close",
+        "passed": true,
+        "detail": "0 agent turns after the call was closed"
+      },
+      {
+        "name": "turn_budget",
+        "passed": true,
+        "detail": "3 agent turns, limit 4"
+      }
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "run_id": "20261108-012620-agent_v1-full",
+  "agent_prompt": "agent_v1",
+  "fingerprints": {
+    "agent_prompt": "agent_v1",
+    "agent_prompt_hash": "9eb7899b326295b8",
+    "brands": {
+      "kesar_and_clay": "67ef78b10388683e",
+      "trailknot": "17d7e154825b90b4"
+    },
+    "suite": "61997779d28813c3"
+  },
+  "passed": 18,
+  "total": 24,
+  "accepted_at": "2026-11-08T01:42:55",
+  "previous_run_id": null,
+  "regressions_accepted": [],
+  "note": ""
+}

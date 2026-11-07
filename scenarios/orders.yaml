@@ -1,0 +1,48 @@
+# Test orders, one per brand and call type. Every name, phone and address is fictional.
+# pii_markers lists the strings that count as order details for the privacy checks:
+# the agent must not say any of them before the customer confirms their identity.
+
+kesar_and_clay:
+  cod:
+    order_id: KC-48213
+    customer_name: Priya Sharma
+    phone: "+91 90000 14821"
+    items:
+      - {name: Kumkumadi Face Oil, qty: 1, price: 899}
+      - {name: Ubtan Face Wash, qty: 1, price: 351}
+    address: Flat 3A, Lotus Residency, Sector 21, Noida, Uttar Pradesh 201301
+    placed_on: 2026-11-08
+    pii_markers: [kumkumadi, ubtan, lotus residency, "1,299", "1299", "flat 3a"]
+  ndr:
+    order_id: KC-47790
+    customer_name: Ankit Verma
+    phone: "+91 90000 17790"
+    items:
+      - {name: Saffron Night Cream, qty: 1, price: 749}
+    address: House 112, Gali No. 4, Shastri Nagar, Jaipur, Rajasthan 302016
+    placed_on: 2026-11-03
+    attempt_date: 2026-11-07
+    ndr_reason: customer not available
+    pii_markers: [saffron night cream, shastri nagar, "house 112", "798", "749"]
+
+trailknot:
+  cod:
+    order_id: TK-90311
+    customer_name: Rahul Nair
+    phone: "+91 90000 90311"
+    items:
+      - {name: Ridge Runner trail shoes (size 9), qty: 1, price: 2899}
+    address: No. 14, 2nd Cross, HSR Layout Sector 3, Bengaluru, Karnataka 560102
+    placed_on: 2026-11-08
+    pii_markers: [ridge runner, hsr layout, "2,899", "2899", "no. 14"]
+  ndr:
+    order_id: TK-89876
+    customer_name: Sneha Iyer
+    phone: "+91 90000 89876"
+    items:
+      - {name: Coastline sandals (size 6), qty: 1, price: 1499}
+    address: B-702, Palm Grove Apartments, Andheri West, Mumbai, Maharashtra 400053
+    placed_on: 2026-11-02
+    attempt_date: 2026-11-07
+    ndr_reason: customer not available
+    pii_markers: [coastline, palm grove, "b-702", "1,499", "1499"]

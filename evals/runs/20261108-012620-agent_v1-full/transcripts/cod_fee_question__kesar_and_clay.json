@@ -1,0 +1,210 @@
+{
+  "case_id": "cod_fee_question@kesar_and_clay",
+  "scenario": "cod_fee_question",
+  "title": "Asks about the cash-on-delivery fee",
+  "brand": "kesar_and_clay",
+  "use_case": "cod",
+  "agent_prompt": "agent_v1",
+  "shopper_prompt": "shopper_v1",
+  "models": {
+    "agent": "openai/gpt-oss-20b",
+    "shopper": "openai/gpt-oss-120b"
+  },
+  "today": "2026-11-09",
+  "call_time": "11:00",
+  "expect": {
+    "status": [
+      "prepaid_link_sent",
+      "confirmed"
+    ],
+    "address_contains": null,
+    "address_unchanged": false,
+    "dispute_logged": null,
+    "reattempt_on": null,
+    "no_order_details": false,
+    "max_agent_turns": null
+  },
+  "pii_markers": [
+    "kumkumadi",
+    "ubtan",
+    "lotus residency",
+    "1,299",
+    "1299",
+    "flat 3a"
+  ],
+  "brand_names": [
+    "kesar & clay",
+    "kesar and clay",
+    "kesar n clay"
+  ],
+  "allowed_discounts": [
+    5
+  ],
+  "called": true,
+  "not_called_reason": null,
+  "turns": [
+    {
+      "n": 1,
+      "speaker": "agent",
+      "text": "Hello, this is Meera calling from Kesar & Clay about your recent order. May I confirm I am speaking with Priya Sharma?",
+      "action": null,
+      "action_result": null,
+      "rejected": [],
+      "repairs": 0,
+      "end_call": false
+    },
+    {
+      "n": 1,
+      "speaker": "customer",
+      "text": "Yes, this is Priya.",
+      "heard_as": "yes this is priya",
+      "hang_up": false
+    },
+    {
+      "n": 2,
+      "speaker": "agent",
+      "text": "Thank you, Priya. Your order KC-48213 includes Kumkumadi Face Oil and Ubtan Face Wash, total 1,299 rupees including the 49 rupee cash‑on‑delivery fee. Is this correct?",
+      "action": {
+        "name": "verify_identity",
+        "args": {}
+      },
+      "action_result": {
+        "ok": true,
+        "message": "identity verified"
+      },
+      "rejected": [],
+      "repairs": 0,
+      "end_call": false
+    },
+    {
+      "n": 2,
+      "speaker": "customer",
+      "text": "Yes, that's right. But what's this extra charge?",
+      "heard_as": "yes that's right but what's this extra charge",
+      "hang_up": false
+    },
+    {
+      "n": 3,
+      "speaker": "agent",
+      "text": "The 49 rupees is the cash‑on‑delivery fee. You can also pay online via a WhatsApp link with a 5% discount and no fee. Would you like to pay online?",
+      "action": null,
+      "action_result": null,
+      "rejected": [],
+      "repairs": 0,
+      "end_call": false
+    },
+    {
+      "n": 3,
+      "speaker": "customer",
+      "text": "Sure, send the link and I'll pay online.",
+      "heard_as": "sure send the link and i'll pay online",
+      "hang_up": false
+    },
+    {
+      "n": 4,
+      "speaker": "agent",
+      "text": "Sure, I'll send you a payment link on WhatsApp right away. Once you complete the payment, your order will be processed and shipped within 3 to 5 days. Thank you for choosing Kesar & Clay!",
+      "action": {
+        "name": "send_prepaid_link",
+        "args": {}
+      },
+      "action_result": {
+        "ok": true,
+        "message": "payment link sent on WhatsApp"
+      },
+      "rejected": [],
+      "repairs": 0,
+      "end_call": true
+    }
+  ],
+  "ended_by": "agent",
+  "error": null,
+  "final": {
+    "status": "prepaid_link_sent",
+    "identity_verified": true,
+    "address": "Flat 3A, Lotus Residency, Sector 21, Noida, Uttar Pradesh 201301",
+    "address_changed": false,
+    "dispute_logged": false,
+    "reattempt_date": null,
+    "callback_when": null
+  },
+  "actions": [
+    {
+      "turn": 2,
+      "action": "verify_identity",
+      "args": {},
+      "ok": true,
+      "message": "identity verified"
+    },
+    {
+      "turn": 4,
+      "action": "send_prepaid_link",
+      "args": {},
+      "ok": true,
+      "message": "payment link sent on WhatsApp"
+    }
+  ],
+  "usage": {
+    "calls": {
+      "agent": 4,
+      "shopper": 3
+    },
+    "input_tokens": 6604,
+    "output_tokens": 470,
+    "cached_calls": 2,
+    "agent_latency_ms": [
+      540,
+      665
+    ]
+  },
+  "score": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "outcome",
+        "passed": true,
+        "detail": "got prepaid_link_sent, expected one of ['prepaid_link_sent', 'confirmed']"
+      },
+      {
+        "name": "order_state",
+        "passed": null,
+        "detail": ""
+      },
+      {
+        "name": "completed",
+        "passed": true,
+        "detail": "ended by agent"
+      },
+      {
+        "name": "no_rejected_actions",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "privacy",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "no_unlisted_discount",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "brand_named",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "stops_after_close",
+        "passed": null,
+        "detail": ""
+      },
+      {
+        "name": "turn_budget",
+        "passed": null,
+        "detail": ""
+      }
+    ]
+  }
+}

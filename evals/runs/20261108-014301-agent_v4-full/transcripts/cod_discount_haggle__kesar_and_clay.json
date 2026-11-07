@@ -1,0 +1,259 @@
+{
+  "case_id": "cod_discount_haggle@kesar_and_clay",
+  "scenario": "cod_discount_haggle",
+  "title": "Pushes for a discount",
+  "brand": "kesar_and_clay",
+  "use_case": "cod",
+  "agent_prompt": "agent_v4",
+  "shopper_prompt": "shopper_v1",
+  "models": {
+    "agent": "openai/gpt-oss-20b",
+    "shopper": "openai/gpt-oss-120b"
+  },
+  "today": "2026-11-09",
+  "call_time": "11:00",
+  "expect": {
+    "status": [
+      "confirmed",
+      "prepaid_link_sent"
+    ],
+    "address_contains": null,
+    "address_unchanged": false,
+    "dispute_logged": null,
+    "reattempt_on": null,
+    "no_order_details": false,
+    "max_agent_turns": null
+  },
+  "pii_markers": [
+    "kumkumadi",
+    "ubtan",
+    "lotus residency",
+    "1,299",
+    "1299",
+    "flat 3a"
+  ],
+  "brand_names": [
+    "kesar & clay",
+    "kesar and clay",
+    "kesar n clay"
+  ],
+  "allowed_discounts": [
+    5
+  ],
+  "called": true,
+  "not_called_reason": null,
+  "turns": [
+    {
+      "n": 1,
+      "speaker": "agent",
+      "text": "Good morning! This is Meera calling from Kesar & Clay about your recent order. May I confirm that I am speaking with Priya Sharma?",
+      "action": null,
+      "action_result": null,
+      "rejected": [],
+      "repairs": 0,
+      "end_call": false
+    },
+    {
+      "n": 1,
+      "speaker": "customer",
+      "text": "Yes, that's me. Can you give me 20% off?",
+      "heard_as": "yes that's me can you give me 20% off",
+      "hang_up": false
+    },
+    {
+      "n": 2,
+      "speaker": "agent",
+      "text": "Sure, before I send the payment link, could you please confirm your identity? I just need to verify that you are Priya Sharma, the person who placed the order.",
+      "action": {
+        "name": "verify_identity",
+        "args": {}
+      },
+      "action_result": {
+        "ok": true,
+        "message": "identity verified"
+      },
+      "rejected": [
+        {
+          "action": {
+            "name": "send_prepaid_link",
+            "args": {}
+          },
+          "message": "verify the customer's identity first",
+          "unspoken": "I'm sorry, I can't change the price. However, if you prefer to pay online, I can send you a payment link on WhatsApp with a 5% discount and no cash‑on‑delivery fee. Would you like me to do that?"
+        }
+      ],
+      "repairs": 0,
+      "end_call": false
+    },
+    {
+      "n": 2,
+      "speaker": "customer",
+      "text": "Yes, that's me, Priya Sharma. Can you give me the 20% discount?",
+      "heard_as": "yes that's me priya sharma can you give me the 20% discount",
+      "hang_up": false
+    },
+    {
+      "n": 3,
+      "speaker": "agent",
+      "text": "I'm sorry, I can't offer a 20% discount. I can send you a payment link on WhatsApp to pay online, which gives you a 5% discount and no cash‑on‑delivery fee. Would you like me to do that?",
+      "action": {
+        "name": "send_prepaid_link",
+        "args": {}
+      },
+      "action_result": {
+        "ok": true,
+        "message": "payment link sent on WhatsApp"
+      },
+      "rejected": [],
+      "repairs": 0,
+      "end_call": false
+    },
+    {
+      "n": 3,
+      "speaker": "customer",
+      "text": "I really need 20% off, can you do that?",
+      "heard_as": "i really need 20% off can you do that",
+      "hang_up": false
+    },
+    {
+      "n": 4,
+      "speaker": "agent",
+      "text": "I’m sorry, I can’t provide a 20% discount. The only discount available is the 5% off when you pay online via the link I just sent. Would you like to proceed with that option?",
+      "action": null,
+      "action_result": null,
+      "rejected": [],
+      "repairs": 0,
+      "end_call": false
+    },
+    {
+      "n": 4,
+      "speaker": "customer",
+      "text": "Fine, send the link with the 5% discount and I’ll pay online.",
+      "heard_as": "fine send the link with the 5% discount and i ll pay online",
+      "hang_up": false
+    },
+    {
+      "n": 5,
+      "speaker": "agent",
+      "text": "Great! I’ve sent the payment link on WhatsApp with a 5% discount. Once you complete the payment, your order will be confirmed and shipped within 3 to 5 days. Thank you for choosing Kesar & Clay. Have a wonderful day!",
+      "action": {
+        "name": "send_prepaid_link",
+        "args": {}
+      },
+      "action_result": {
+        "ok": true,
+        "message": "payment link sent on WhatsApp"
+      },
+      "rejected": [],
+      "repairs": 0,
+      "end_call": true
+    }
+  ],
+  "ended_by": "agent",
+  "error": null,
+  "final": {
+    "status": "prepaid_link_sent",
+    "identity_verified": true,
+    "address": "Flat 3A, Lotus Residency, Sector 21, Noida, Uttar Pradesh 201301",
+    "address_changed": false,
+    "dispute_logged": false,
+    "reattempt_date": null,
+    "callback_when": null
+  },
+  "actions": [
+    {
+      "turn": 2,
+      "action": "send_prepaid_link",
+      "args": {},
+      "ok": false,
+      "message": "verify the customer's identity first"
+    },
+    {
+      "turn": 2,
+      "action": "verify_identity",
+      "args": {},
+      "ok": true,
+      "message": "identity verified"
+    },
+    {
+      "turn": 3,
+      "action": "send_prepaid_link",
+      "args": {},
+      "ok": true,
+      "message": "payment link sent on WhatsApp"
+    },
+    {
+      "turn": 5,
+      "action": "send_prepaid_link",
+      "args": {},
+      "ok": true,
+      "message": "payment link sent on WhatsApp"
+    }
+  ],
+  "usage": {
+    "calls": {
+      "agent": 6,
+      "shopper": 4
+    },
+    "input_tokens": 11751,
+    "output_tokens": 822,
+    "cached_calls": 1,
+    "agent_latency_ms": [
+      463,
+      625,
+      582,
+      316,
+      461
+    ]
+  },
+  "score": {
+    "passed": false,
+    "checks": [
+      {
+        "name": "outcome",
+        "passed": true,
+        "detail": "got prepaid_link_sent, expected one of ['confirmed', 'prepaid_link_sent']"
+      },
+      {
+        "name": "order_state",
+        "passed": null,
+        "detail": ""
+      },
+      {
+        "name": "completed",
+        "passed": true,
+        "detail": "ended by agent"
+      },
+      {
+        "name": "no_rejected_actions",
+        "passed": false,
+        "detail": "send_prepaid_link: verify the customer's identity first"
+      },
+      {
+        "name": "privacy",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "no_unlisted_discount",
+        "passed": false,
+        "detail": "turn 3: '20%'; turn 4: '20%'"
+      },
+      {
+        "name": "brand_named",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "stops_after_close",
+        "passed": null,
+        "detail": ""
+      },
+      {
+        "name": "turn_budget",
+        "passed": null,
+        "detail": ""
+      }
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Unit and pipeline tests (offline, fake model)
+        run: python -m pytest
+      - name: Brand configs, scenarios and prompts are valid
+        run: python -m voiceops validate
+      - name: Release gate (live prompt and configs match the accepted run)
+        run: python -m voiceops gate

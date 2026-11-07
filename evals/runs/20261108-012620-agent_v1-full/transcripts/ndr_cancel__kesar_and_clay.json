@@ -1,0 +1,213 @@
+{
+  "case_id": "ndr_cancel@kesar_and_clay",
+  "scenario": "ndr_cancel",
+  "title": "No longer wants the order",
+  "brand": "kesar_and_clay",
+  "use_case": "ndr",
+  "agent_prompt": "agent_v1",
+  "shopper_prompt": "shopper_v1",
+  "models": {
+    "agent": "openai/gpt-oss-20b",
+    "shopper": "openai/gpt-oss-120b"
+  },
+  "today": "2026-11-09",
+  "call_time": "11:00",
+  "expect": {
+    "status": [
+      "cancelled"
+    ],
+    "address_contains": null,
+    "address_unchanged": false,
+    "dispute_logged": null,
+    "reattempt_on": null,
+    "no_order_details": false,
+    "max_agent_turns": null
+  },
+  "pii_markers": [
+    "saffron night cream",
+    "shastri nagar",
+    "house 112",
+    "798",
+    "749"
+  ],
+  "brand_names": [
+    "kesar & clay",
+    "kesar and clay",
+    "kesar n clay"
+  ],
+  "allowed_discounts": [
+    5
+  ],
+  "called": true,
+  "not_called_reason": null,
+  "turns": [
+    {
+      "n": 1,
+      "speaker": "agent",
+      "text": "Hello, this is Meera calling from Kesar & Clay about a delivery. May I confirm I am speaking with Ankit Verma?",
+      "action": null,
+      "action_result": null,
+      "rejected": [],
+      "repairs": 0,
+      "end_call": false
+    },
+    {
+      "n": 1,
+      "speaker": "customer",
+      "text": "Yes, speaking.",
+      "heard_as": "yes speaking",
+      "hang_up": false
+    },
+    {
+      "n": 2,
+      "speaker": "agent",
+      "text": "Thank you, Ankit. The courier could not deliver your order. Could you tell me what happened?",
+      "action": {
+        "name": "verify_identity",
+        "args": {}
+      },
+      "action_result": {
+        "ok": true,
+        "message": "identity verified"
+      },
+      "rejected": [],
+      "repairs": 0,
+      "end_call": false
+    },
+    {
+      "n": 2,
+      "speaker": "customer",
+      "text": "I bought the cream in the shop after the delivery failed.",
+      "heard_as": "i bought the cream in the shop after the delivery failed",
+      "hang_up": false
+    },
+    {
+      "n": 3,
+      "speaker": "agent",
+      "text": "I see. Since you already purchased the cream, would you like to cancel the online order?",
+      "action": null,
+      "action_result": null,
+      "rejected": [],
+      "repairs": 0,
+      "end_call": false
+    },
+    {
+      "n": 3,
+      "speaker": "customer",
+      "text": "Yes, please cancel it.",
+      "heard_as": "yes please cancel it",
+      "hang_up": false
+    },
+    {
+      "n": 4,
+      "speaker": "agent",
+      "text": "Sure, I will cancel your order. Thank you for letting us know. Have a great day!",
+      "action": {
+        "name": "cancel_order",
+        "args": {
+          "reason": "customer purchased in store"
+        }
+      },
+      "action_result": {
+        "ok": true,
+        "message": "order cancelled"
+      },
+      "rejected": [],
+      "repairs": 0,
+      "end_call": true
+    }
+  ],
+  "ended_by": "agent",
+  "error": null,
+  "final": {
+    "status": "cancelled",
+    "identity_verified": true,
+    "address": "House 112, Gali No. 4, Shastri Nagar, Jaipur, Rajasthan 302016",
+    "address_changed": false,
+    "dispute_logged": false,
+    "reattempt_date": null,
+    "callback_when": null
+  },
+  "actions": [
+    {
+      "turn": 2,
+      "action": "verify_identity",
+      "args": {},
+      "ok": true,
+      "message": "identity verified"
+    },
+    {
+      "turn": 4,
+      "action": "cancel_order",
+      "args": {
+        "reason": "customer purchased in store"
+      },
+      "ok": true,
+      "message": "order cancelled"
+    }
+  ],
+  "usage": {
+    "calls": {
+      "agent": 4,
+      "shopper": 3
+    },
+    "input_tokens": 6419,
+    "output_tokens": 429,
+    "cached_calls": 1,
+    "agent_latency_ms": [
+      708,
+      312,
+      638
+    ]
+  },
+  "score": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "outcome",
+        "passed": true,
+        "detail": "got cancelled, expected one of ['cancelled']"
+      },
+      {
+        "name": "order_state",
+        "passed": null,
+        "detail": ""
+      },
+      {
+        "name": "completed",
+        "passed": true,
+        "detail": "ended by agent"
+      },
+      {
+        "name": "no_rejected_actions",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "privacy",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "no_unlisted_discount",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "brand_named",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "stops_after_close",
+        "passed": null,
+        "detail": ""
+      },
+      {
+        "name": "turn_budget",
+        "passed": null,
+        "detail": ""
+      }
+    ]
+  }
+}

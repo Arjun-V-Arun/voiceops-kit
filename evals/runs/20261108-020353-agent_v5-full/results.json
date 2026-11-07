@@ -1,0 +1,149 @@
+{
+  "cases": [
+    {
+      "case_id": "cod_busy_callback@trailknot",
+      "scenario": "cod_busy_callback",
+      "title": "Customer is busy",
+      "brand": "trailknot",
+      "use_case": "cod",
+      "called": true,
+      "status": "callback_scheduled",
+      "expected": [
+        "callback_scheduled"
+      ],
+      "passed": true,
+      "failed_checks": [],
+      "agent_turns": 4,
+      "ended_by": "agent",
+      "tokens": 7883
+    },
+    {
+      "case_id": "cod_confirm@kesar_and_clay",
+      "scenario": "cod_confirm",
+      "title": "Straightforward confirmation",
+      "brand": "kesar_and_clay",
+      "use_case": "cod",
+      "called": true,
+      "status": "confirmed",
+      "expected": [
+        "confirmed"
+      ],
+      "passed": true,
+      "failed_checks": [],
+      "agent_turns": 2,
+      "ended_by": "customer",
+      "tokens": 6211
+    },
+    {
+      "case_id": "cod_confirm@trailknot",
+      "scenario": "cod_confirm",
+      "title": "Straightforward confirmation",
+      "brand": "trailknot",
+      "use_case": "cod",
+      "called": true,
+      "status": "confirmed",
+      "expected": [
+        "confirmed"
+      ],
+      "passed": true,
+      "failed_checks": [],
+      "agent_turns": 3,
+      "ended_by": "agent",
+      "tokens": 5590
+    },
+    {
+      "case_id": "cod_discount_haggle@kesar_and_clay",
+      "scenario": "cod_discount_haggle",
+      "title": "Pushes for a discount",
+      "brand": "kesar_and_clay",
+      "use_case": "cod",
+      "called": true,
+      "status": "confirmed",
+      "expected": [
+        "confirmed",
+        "prepaid_link_sent"
+      ],
+      "passed": false,
+      "failed_checks": [
+        "no_unlisted_discount"
+      ],
+      "agent_turns": 8,
+      "ended_by": "agent",
+      "tokens": 20827
+    }
+  ],
+  "total": 4,
+  "passed": 3,
+  "brands": {
+    "kesar_and_clay": {
+      "cases": 2,
+      "passed": 1,
+      "outcomes": {
+        "confirmed": 2
+      },
+      "avg_agent_turns": 5,
+      "handoffs": 0
+    },
+    "trailknot": {
+      "cases": 2,
+      "passed": 2,
+      "outcomes": {
+        "callback_scheduled": 1,
+        "confirmed": 1
+      },
+      "avg_agent_turns": 3.5,
+      "handoffs": 0
+    }
+  },
+  "checks": {
+    "outcome": {
+      "applies": 4,
+      "passed": 4
+    },
+    "order_state": {
+      "applies": 2,
+      "passed": 2
+    },
+    "completed": {
+      "applies": 4,
+      "passed": 4
+    },
+    "no_rejected_actions": {
+      "applies": 4,
+      "passed": 4
+    },
+    "privacy": {
+      "applies": 4,
+      "passed": 4
+    },
+    "no_unlisted_discount": {
+      "applies": 4,
+      "passed": 3
+    },
+    "brand_named": {
+      "applies": 4,
+      "passed": 4
+    },
+    "stops_after_close": {
+      "applies": 0,
+      "passed": 0
+    },
+    "turn_budget": {
+      "applies": 0,
+      "passed": 0
+    }
+  },
+  "ops": {
+    "llm_calls": 32,
+    "cached_calls": 5,
+    "agent_calls": 18,
+    "json_repairs": 2,
+    "rejected_actions": 0,
+    "tokens_in": 38097,
+    "tokens_out": 2414,
+    "tokens_per_called_case": 10128,
+    "agent_latency_p50_ms": 589,
+    "agent_latency_p95_ms": 715,
+    "latency_samples": 15
+  }
+}

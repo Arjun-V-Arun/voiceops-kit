@@ -1,0 +1,229 @@
+{
+  "case_id": "cod_address_change@trailknot",
+  "scenario": "cod_address_change",
+  "title": "Wrong flat or house number on the order",
+  "brand": "trailknot",
+  "use_case": "cod",
+  "agent_prompt": "agent_v2",
+  "shopper_prompt": "shopper_v1",
+  "models": {
+    "agent": "openai/gpt-oss-20b",
+    "shopper": "openai/gpt-oss-120b"
+  },
+  "today": "2026-11-09",
+  "call_time": "11:00",
+  "expect": {
+    "status": [
+      "handoff",
+      "cancelled"
+    ],
+    "address_contains": null,
+    "address_unchanged": true,
+    "dispute_logged": null,
+    "reattempt_on": null,
+    "no_order_details": false,
+    "max_agent_turns": null
+  },
+  "pii_markers": [
+    "ridge runner",
+    "hsr layout",
+    "2,899",
+    "2899",
+    "no. 14"
+  ],
+  "brand_names": [
+    "trailknot"
+  ],
+  "allowed_discounts": [],
+  "called": true,
+  "not_called_reason": null,
+  "turns": [
+    {
+      "n": 1,
+      "speaker": "agent",
+      "text": "Hello! This is Rohan calling from TrailKnot about your recent order. May I confirm if I am speaking with Rahul Nair?",
+      "action": null,
+      "action_result": null,
+      "rejected": [],
+      "repairs": 0,
+      "end_call": false
+    },
+    {
+      "n": 1,
+      "speaker": "customer",
+      "text": "Yes, speaking.",
+      "heard_as": "yes speaking",
+      "hang_up": false
+    },
+    {
+      "n": 2,
+      "speaker": "agent",
+      "text": "Great! May I confirm you are Rahul Nair?",
+      "action": null,
+      "action_result": null,
+      "rejected": [],
+      "repairs": 0,
+      "end_call": false
+    },
+    {
+      "n": 2,
+      "speaker": "customer",
+      "text": "Yes, that's me.",
+      "heard_as": "yes that's me",
+      "hang_up": false
+    },
+    {
+      "n": 3,
+      "speaker": "agent",
+      "text": "Thanks, Rahul. Your order TK-90311 placed on Sunday, 8 November 2026 includes Ridge Runner trail shoes size 9, quantity 1, total 2,899 rupees. Delivery address: No. 14, 2nd Cross, HSR Layout Sector 3, Bengaluru, Karnataka 560102. Is everything correct?",
+      "action": {
+        "name": "verify_identity",
+        "args": {}
+      },
+      "action_result": {
+        "ok": true,
+        "message": "identity verified"
+      },
+      "rejected": [],
+      "repairs": 0,
+      "end_call": false
+    },
+    {
+      "n": 3,
+      "speaker": "customer",
+      "text": "Actually the house number is 41, not 14. Could you change it?",
+      "heard_as": "actually the house number is 41 not 14 could you change it",
+      "hang_up": false
+    },
+    {
+      "n": 4,
+      "speaker": "agent",
+      "text": "I’m sorry, but we can’t change the delivery address over the phone. I can connect you to our support team to help with this. Would you like me to do that?",
+      "action": {
+        "name": "handoff",
+        "args": {
+          "reason": "address change request"
+        }
+      },
+      "action_result": {
+        "ok": true,
+        "message": "a support agent will take over"
+      },
+      "rejected": [],
+      "repairs": 0,
+      "end_call": false
+    },
+    {
+      "n": 4,
+      "speaker": "customer",
+      "text": "Yes, please connect me to support.",
+      "heard_as": "yes please connect me to support",
+      "hang_up": false
+    },
+    {
+      "n": 5,
+      "speaker": "agent",
+      "text": "Sure, connecting you to our support team now. Thank you for calling TrailKnot. Have a great day!",
+      "action": null,
+      "action_result": null,
+      "rejected": [],
+      "repairs": 0,
+      "end_call": true
+    }
+  ],
+  "ended_by": "agent",
+  "error": null,
+  "final": {
+    "status": "handoff",
+    "identity_verified": true,
+    "address": "No. 14, 2nd Cross, HSR Layout Sector 3, Bengaluru, Karnataka 560102",
+    "address_changed": false,
+    "dispute_logged": false,
+    "reattempt_date": null,
+    "callback_when": null
+  },
+  "actions": [
+    {
+      "turn": 3,
+      "action": "verify_identity",
+      "args": {},
+      "ok": true,
+      "message": "identity verified"
+    },
+    {
+      "turn": 4,
+      "action": "handoff",
+      "args": {
+        "reason": "address change request"
+      },
+      "ok": true,
+      "message": "a support agent will take over"
+    }
+  ],
+  "usage": {
+    "calls": {
+      "agent": 5,
+      "shopper": 4
+    },
+    "input_tokens": 8491,
+    "output_tokens": 556,
+    "cached_calls": 0,
+    "agent_latency_ms": [
+      694,
+      528,
+      625,
+      711,
+      666
+    ]
+  },
+  "score": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "outcome",
+        "passed": true,
+        "detail": "got handoff, expected one of ['handoff', 'cancelled']"
+      },
+      {
+        "name": "order_state",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "completed",
+        "passed": true,
+        "detail": "ended by agent"
+      },
+      {
+        "name": "no_rejected_actions",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "privacy",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "no_unlisted_discount",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "brand_named",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "stops_after_close",
+        "passed": null,
+        "detail": ""
+      },
+      {
+        "name": "turn_budget",
+        "passed": null,
+        "detail": ""
+      }
+    ]
+  }
+}
